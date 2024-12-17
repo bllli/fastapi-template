@@ -67,6 +67,11 @@ if __name__ == "__main__":
     logger.info("main2, Facade is Singleton, Service is Factory")
     main2()
     main2()
+
+    logger.warning(
+        "dangerous! if Facade is Singleton, Service is Factory, Facade will use the same Service instance."
+    )
+
     logger.info("-" * 100)
     logger.info("main3, Facade is Factory, Service is Singleton")
     main3()
