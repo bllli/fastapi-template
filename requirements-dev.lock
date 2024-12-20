@@ -48,6 +48,7 @@ pytest-asyncio==0.25.0
     # via fastapi-template
 redis==5.2.1
     # via fastapi-template
+ruff==0.8.3
 six==1.17.0
     # via dependency-injector
 sniffio==1.3.1
