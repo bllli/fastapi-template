@@ -7,26 +7,28 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 
+instances_holder = []  # 保存所有实例。这样可以避免对象ID重复
+
+
 class Service:
     def __init__(self):
         logger.info("Service initialized")
-
+        instances_holder.append(self)
 
 
 class Facade:
     def __init__(self, service: Service):
         self.service = service
         logger.info("Facade initialized")
+        instances_holder.append(self)
 
     def process(self):
         logger.info("F id: %s, S id: %s", id(self), id(self.service))
 
 
 class DI(containers.DeclarativeContainer):
-    config = providers.Configuration()
-
     service1 = providers.Factory(Service)
-    service2 = providers.Factory(Service)
+    service2 = providers.Singleton(Service)
 
     facade1 = providers.Factory(Facade, service=service1)
     facade2 = providers.Singleton(Facade, service=service1)
