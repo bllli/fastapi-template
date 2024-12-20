@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "11451:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+
+  redis:
+    image: redis:latest
+    ports:
+      - "11452:6379"
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "11453:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=mydb
