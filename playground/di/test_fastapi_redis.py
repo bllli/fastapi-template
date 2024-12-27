@@ -3,7 +3,7 @@ from httpx import ASGITransport, AsyncClient
 import pytest
 import pytest_asyncio
 
-from playgroud.di.fastapi_redis import create_app
+from di.fastapi_redis import create_app
 
 
 @pytest_asyncio.fixture(scope="session")

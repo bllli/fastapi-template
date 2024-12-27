@@ -8,7 +8,7 @@ from dependency_injector.wiring import inject, Provide
 
 
 async def get_redis_pool():
-    pool = redis.asyncio.ConnectionPool(host="localhost", port=6379, db=0)
+    pool = redis.asyncio.ConnectionPool(host="localhost", port=11452, db=0)
     yield pool
     await pool.aclose()
 
